@@ -4,8 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     $(flipbook).turn({
         width: 800,
         height: 600,
-        autoCenter: true,
-        pages: 10, // Jumlah halaman, sesuaikan dengan kebutuhan
+        autoCenter: true
     });
 
     // Load pages into flipbook
