@@ -11,8 +11,8 @@ body {
 
 .flipbook-viewport {
     position: relative;
-    width: 800px;
-    height: 600px;
+    width: 1000px;
+    height: 700px;
 }
 
 .container {
@@ -20,6 +20,7 @@ body {
     height: 100%;
     overflow: hidden;
     background: #fff;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
 
 .flipbook .page {
@@ -31,4 +32,25 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.controls {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.controls button {
+    background: #555;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.controls button:hover {
+    background: #777;
 }
