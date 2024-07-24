@@ -1,27 +1,22 @@
-$(document).ready(function() {
-    console.log('Document ready');
+let currentPage = 1;
 
-    var flipbook = $('#flipbook');
+function updatePage() {
+    const pages = document.querySelectorAll('.page');
+    pages.forEach((page, index) => {
+        page.style.left = `${(index - currentPage + 1) * 100}%`;
+    });
+}
 
-    if (flipbook.length) {
-        console.log('Flipbook element found');
-        
-        flipbook.turn({
-            width: 800,
-            height: 600,
-            autoCenter: true,
-            pages: 10 // Sesuaikan dengan jumlah halaman
-        });
-
-        for (var i = 1; i <= 10; i++) {
-            var page = $('<div class="turn-page"><img src="images/page' + i + '.jpg" alt="Page ' + i + '" /></div>');
-            flipbook.turn('addPage', page);
-            console.log('Added page ' + i);
-        }
-
-        // Debug untuk memeriksa apakah halaman berhasil ditambahkan
-        console.log('Pages added');
-    } else {
-        console.log('Flipbook element not found');
+function nextPage() {
+    if (currentPage < 2) { // Ubah sesuai jumlah halaman
+        currentPage++;
+        updatePage();
     }
-});
+}
+
+function previousPage() {
+    if (currentPage > 1) {
+        currentPage--;
+        updatePage();
+    }
+}
