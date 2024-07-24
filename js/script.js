@@ -1,4 +1,23 @@
+const totalPages = 68;
 let currentPage = 1;
+
+function createPageElements() {
+    const flipbook = document.getElementById('flipbook');
+
+    for (let i = 1; i <= totalPages; i++) {
+        const page = document.createElement('div');
+        page.className = 'page';
+        page.id = `page${i}`;
+        page.style.left = `${(i - 1) * 100}%`;
+
+        const img = document.createElement('img');
+        img.src = `images/page${i}.jpg`;
+        img.alt = `Halaman ${i}`;
+
+        page.appendChild(img);
+        flipbook.appendChild(page);
+    }
+}
 
 function updatePage() {
     const pages = document.querySelectorAll('.page');
@@ -8,7 +27,7 @@ function updatePage() {
 }
 
 function nextPage() {
-    if (currentPage < 2) { // Ubah sesuai jumlah halaman
+    if (currentPage < totalPages) {
         currentPage++;
         updatePage();
     }
@@ -20,3 +39,5 @@ function previousPage() {
         updatePage();
     }
 }
+
+window.onload = createPageElements;
