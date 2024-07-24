@@ -23,6 +23,9 @@
             </div>
         </div>
     </div>
+    <div class="page-number">
+        Page <span id="current-page">1</span> of 68
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -31,7 +34,7 @@
             for (var i = 1; i <= 68; i++) {
                 var page = document.createElement('div');
                 page.classList.add('page');
-                page.innerHTML = '<img src="images/page' + i + '.jpg">';
+                page.innerHTML = '<img src="images/page' + i + '.jpg"><div class="page-footer">' + i + '</div>';
                 flipbook.appendChild(page);
             }
 
@@ -58,7 +61,12 @@
                 autoCenter: true,
                 display: 'single',
                 gradients: true,
-                elevation: 50
+                elevation: 50,
+                when: {
+                    turned: function(event, page, view) {
+                        $('#current-page').text(page);
+                    }
+                }
             });
 
             $(window).resize(resizeFlipbook);
