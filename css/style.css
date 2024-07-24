@@ -11,8 +11,8 @@ body {
 
 .flipbook-viewport {
     position: relative;
-    width: 1000px;
-    height: 700px;
+    width: 80vw;
+    height: 80vh;
 }
 
 .container {
