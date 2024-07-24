@@ -14,6 +14,10 @@
             <div class="flipbook">
                 <!-- Pages will be inserted here -->
             </div>
+            <div class="controls">
+                <button id="prev">Previous</button>
+                <button id="next">Next</button>
+            </div>
         </div>
     </div>
 
@@ -29,9 +33,20 @@
             }
 
             $('.flipbook').turn({
-                width: 800,
-                height: 600,
-                autoCenter: true
+                width: 1000,
+                height: 700,
+                autoCenter: true,
+                gradients: true,
+                elevation: 50
+            });
+
+            // Navigation buttons
+            document.getElementById('prev').addEventListener('click', function() {
+                $('.flipbook').turn('previous');
+            });
+
+            document.getElementById('next').addEventListener('click', function() {
+                $('.flipbook').turn('next');
             });
         });
     </script>
