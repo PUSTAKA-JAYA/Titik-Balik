@@ -1,0 +1,24 @@
+{
+    "pages": [
+        {
+            "title": "Page 1",
+            "content": "Welcome to the flipbook!",
+            "image": "img/page1.jpg"
+        },
+        {
+            "title": "Page 2",
+            "content": "This is the second page.",
+            "image": "img/page2.jpg"
+        },
+        {
+            "title": "Page 3",
+            "content": "Here is the third page.",
+            "image": "img/page3.jpg"
+        },
+        {
+            "title": "Page 4",
+            "content": "And this is the last page.",
+            "image": "img/page4.jpg"
+        }
+    ]
+}
