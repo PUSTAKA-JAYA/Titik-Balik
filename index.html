@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipbook</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/turn.js"></script>
+</head>
+<body>
+    <div class="flipbook-viewport">
+        <div class="container">
+            <div class="flipbook">
+                <!-- Pages will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var flipbook = document.querySelector('.flipbook');
+
+            for (var i = 1; i <= 68; i++) {
+                var page = document.createElement('div');
+                page.classList.add('page');
+                page.innerHTML = '<img src="images/page' + i + '.jpg">';
+                flipbook.appendChild(page);
+            }
+
+            $('.flipbook').turn({
+                width: 800,
+                height: 600,
+                autoCenter: true
+            });
+        });
+    </script>
+</body>
+</html>
