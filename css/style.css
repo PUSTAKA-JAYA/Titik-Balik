@@ -63,6 +63,8 @@ header img {
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
+    display: flex;
+    align-items: center;
 }
 
 .controls button {
@@ -70,7 +72,7 @@ header img {
     color: #fff;
     border: none;
     padding: 10px 20px;
-    margin: 0 5px;
+    margin: 0 10px;
     cursor: pointer;
     font-size: 16px;
 }
@@ -80,9 +82,6 @@ header img {
 }
 
 .page-number {
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
     background: rgba(0, 0, 0, 0.7);
     color: #fff;
     padding: 5px 10px;
@@ -97,9 +96,17 @@ header img {
         height: 75vh;
     }
     
+    .controls {
+        flex-direction: column;
+    }
+
     .controls button {
         padding: 8px 16px;
         font-size: 14px;
+    }
+
+    .controls .page-number {
+        margin: 10px 0;
     }
 }
 
@@ -108,7 +115,7 @@ header img {
         width: 90vw;
         height: 80vh;
     }
-    
+
     .controls button {
         padding: 9px 18px;
         font-size: 15px;
