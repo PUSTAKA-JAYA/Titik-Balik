@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Flipbook</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="flipbook">
+        <div class="page" id="page1">
+            <h2>Page 1</h2>
+            <p>Welcome to the flipbook!</p>
+            <img src="img/page1.jpg" alt="Image for Page 1">
+        </div>
+        <div class="page" id="page2">
+            <h2>Page 2</h2>
+            <p>This is the second page.</p>
+            <img src="img/page2.jpg" alt="Image for Page 2">
+        </div>
+        <div class="page" id="page3">
+            <h2>Page 3</h2>
+            <p>Here is the third page.</p>
+            <img src="img/page3.jpg" alt="Image for Page 3">
+        </div>
+        <div class="page" id="page4">
+            <h2>Page 4</h2>
+            <p>And this is the last page.</p>
+            <img src="img/page4.jpg" alt="Image for Page 4">
+        </div>
+    </div>
+    <div class="buttons">
+        <button id="prev">Previous</button>
+        <input type="number" id="page-input" min="1" max="4" value="1">
+        <button id="go">Go</button>
+        <span id="page-indicator">Page 1 of 4</span>
+        <button id="next">Next</button>
+    </div>
+
+    <script src="js/scripts.js"></script>
+</body>
+</html>
