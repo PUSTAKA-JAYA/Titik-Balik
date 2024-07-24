@@ -55,9 +55,13 @@ document.getElementById('go').addEventListener('click', () => {
 });
 
 function updateFlipbook() {
+    const flipbook = document.querySelector('.flipbook');
     pages.forEach((page, index) => {
         const pageElement = document.getElementById(`page${index + 1}`);
-        if (index <= currentPage) {
+        if (index === currentPage) {
+            pageElement.style.transform = `rotateY(${index * -180}deg)`;
+            pageElement.classList.remove('hidden');
+        } else if (index < currentPage) {
             pageElement.style.transform = `rotateY(${index * -180}deg)`;
             pageElement.classList.remove('hidden');
         } else {
@@ -93,9 +97,7 @@ function handleGesture() {
             currentPage++;
             updateFlipbook();
         }
-    }
-    
-    if (touchEndX > touchStartX) {
+    } else if (touchEndX > touchStartX) {
         if (currentPage > 0) {
             currentPage--;
             updateFlipbook();
