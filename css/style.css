@@ -66,3 +66,28 @@ header img {
 .controls button:hover {
     background: #777;
 }
+
+/* Media Queries */
+@media (max-width: 767px) {
+    .flipbook-viewport {
+        width: 95vw;
+        height: 75vh;
+    }
+    
+    .controls button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .flipbook-viewport {
+        width: 90vw;
+        height: 80vh;
+    }
+    
+    .controls button {
+        padding: 9px 18px;
+        font-size: 15px;
+    }
+}
