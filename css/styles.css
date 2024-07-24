@@ -20,7 +20,7 @@ body {
     height: 100%;
     position: absolute;
     backface-visibility: hidden;
-    transition: transform 1s cubic-bezier(0.2, 0.6, 0.3, 1), opacity 1s;
+    transition: transform 1s, opacity 1s;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -38,10 +38,10 @@ body {
     margin-top: 10px;
 }
 
-#page1 { z-index: 4; transform: rotateY(0deg); }
-#page2 { z-index: 3; transform: rotateY(-180deg); }
-#page3 { z-index: 2; transform: rotateY(-360deg); }
-#page4 { z-index: 1; transform: rotateY(-540deg); }
+#page1 { transform: rotateY(0deg); }
+#page2 { transform: rotateY(-180deg); }
+#page3 { transform: rotateY(-360deg); }
+#page4 { transform: rotateY(-540deg); }
 
 .hidden { opacity: 0; }
 
