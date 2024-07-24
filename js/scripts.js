@@ -1,7 +1,3 @@
-let currentPage = 0;
-let pages = [];
-const totalPages = 0; // Will be updated after loading data
-
 document.addEventListener('DOMContentLoaded', () => {
     fetch('data.json')
         .then(response => response.json())
@@ -10,8 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
             totalPages = pages.length;
             initializePages();
             updateFlipbook();
-        });
+        })
+        .catch(error => console.error('Error loading data:', error));
 });
+
+let currentPage = 0;
+let pages = [];
+let totalPages = 0;
 
 function initializePages() {
     const flipbook = document.querySelector('.flipbook');
