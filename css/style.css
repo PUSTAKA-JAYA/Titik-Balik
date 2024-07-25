@@ -64,7 +64,9 @@ header img {
     left: 50%;
     transform: translateX(-50%);
     display: flex;
+    justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .controls button {
@@ -87,9 +89,6 @@ header img {
     padding: 5px 10px;
     border-radius: 5px;
     font-size: 14px;
-    margin: 0 10px;
-    text-align: center;
-    min-width: 100px;
 }
 
 /* Media Queries */
@@ -100,20 +99,17 @@ header img {
     }
 
     .controls {
-        width: 100%;
+        flex-direction: row;
         justify-content: space-between;
     }
 
-    .controls button, .controls .page-number {
-        flex: 1;
-        text-align: center;
-        padding: 8px 0;
+    .controls button {
+        padding: 8px 16px;
         font-size: 14px;
-        margin: 0;
     }
 
     .controls .page-number {
-        order: 2;
+        margin: 0 20px;
     }
 }
 
@@ -126,5 +122,9 @@ header img {
     .controls button {
         padding: 9px 18px;
         font-size: 15px;
+    }
+
+    .controls .page-number {
+        margin: 0 20px;
     }
 }
