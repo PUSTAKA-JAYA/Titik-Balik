@@ -15,12 +15,12 @@ document.addEventListener('DOMContentLoaded', function() {
         var flipbookWidth, flipbookHeight;
 
         if (window.innerWidth > window.innerHeight) { // Landscape
-            flipbookWidth = viewportWidth * 0.9;
-            flipbookHeight = (viewportHeight - headerHeight) * 0.9;
+            flipbookWidth = viewportWidth;
+            flipbookHeight = viewportHeight - headerHeight;
             $('.flipbook').turn('display', 'double');
         } else { // Portrait
-            flipbookWidth = viewportWidth * 0.9;
-            flipbookHeight = (viewportHeight - headerHeight) * 0.9;
+            flipbookWidth = viewportWidth;
+            flipbookHeight = viewportHeight - headerHeight;
             $('.flipbook').turn('display', 'single');
         }
 
@@ -28,8 +28,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     $('.flipbook').turn({
-        width: $(window).width() * 0.9,
-        height: ($(window).height() - $('header').outerHeight()) * 0.9,
+        width: $(window).width(),
+        height: $(window).height() - $('header').outerHeight(),
         autoCenter: true,
         display: 'single',
         gradients: true,
