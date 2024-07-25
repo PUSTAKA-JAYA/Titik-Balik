@@ -55,6 +55,14 @@
                 $('.flipbook').turn('size', flipbookWidth, flipbookHeight);
             }
 
+            function setFlipbookDisplay() {
+                if (window.innerWidth > window.innerHeight) {
+                    $('.flipbook').turn('display', 'double');
+                } else {
+                    $('.flipbook').turn('display', 'single');
+                }
+            }
+
             $('.flipbook').turn({
                 width: $(window).width() * 0.8,
                 height: $(window).height() * 0.8,
@@ -69,7 +77,12 @@
                 }
             });
 
-            $(window).resize(resizeFlipbook);
+            $(window).resize(function() {
+                resizeFlipbook();
+                setFlipbookDisplay();
+            });
+
+            setFlipbookDisplay();
             resizeFlipbook();
 
             // Navigation buttons
@@ -103,6 +116,7 @@
                     controls.classList.remove('fullscreen-controls');
                 }
                 resizeFlipbook();
+                setFlipbookDisplay();
             });
         });
     </script>
