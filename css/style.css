@@ -83,14 +83,6 @@ header img {
     background: #777;
 }
 
-.page-number {
-    background: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 14px;
-}
-
 /* Media Queries */
 @media (max-width: 767px) {
     .flipbook-viewport {
@@ -107,10 +99,6 @@ header img {
         padding: 8px 16px;
         font-size: 14px;
     }
-
-    .controls .page-number {
-        margin: 0 20px;
-    }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -122,9 +110,5 @@ header img {
     .controls button {
         padding: 9px 18px;
         font-size: 15px;
-    }
-
-    .controls .page-number {
-        margin: 0 20px;
     }
 }
