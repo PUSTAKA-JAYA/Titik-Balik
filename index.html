@@ -41,26 +41,19 @@
             function resizeFlipbook() {
                 var viewportWidth = $(window).width();
                 var viewportHeight = $(window).height();
-                var flipbookWidth = viewportWidth * 0.8;
-                var flipbookHeight = viewportHeight * 0.8;
+                var flipbookWidth, flipbookHeight;
 
-                if (viewportWidth < 768) { // Mobile
-                    flipbookWidth = viewportWidth * 0.95;
-                    flipbookHeight = viewportHeight * 0.75;
-                } else if (viewportWidth < 992) { // Tablet
+                if (window.innerWidth > window.innerHeight) { // Landscape
                     flipbookWidth = viewportWidth * 0.9;
+                    flipbookHeight = viewportHeight * 0.9;
+                    $('.flipbook').turn('display', 'double');
+                } else { // Portrait
+                    flipbookWidth = viewportWidth * 0.8;
                     flipbookHeight = viewportHeight * 0.8;
+                    $('.flipbook').turn('display', 'single');
                 }
 
                 $('.flipbook').turn('size', flipbookWidth, flipbookHeight);
-            }
-
-            function setFlipbookDisplay() {
-                if (window.innerWidth > window.innerHeight) {
-                    $('.flipbook').turn('display', 'double');
-                } else {
-                    $('.flipbook').turn('display', 'single');
-                }
             }
 
             $('.flipbook').turn({
@@ -79,10 +72,8 @@
 
             $(window).resize(function() {
                 resizeFlipbook();
-                setFlipbookDisplay();
             });
 
-            setFlipbookDisplay();
             resizeFlipbook();
 
             // Navigation buttons
@@ -116,7 +107,6 @@
                     controls.classList.remove('fullscreen-controls');
                 }
                 resizeFlipbook();
-                setFlipbookDisplay();
             });
         });
     </script>
