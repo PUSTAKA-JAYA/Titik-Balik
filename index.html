@@ -23,6 +23,7 @@
                     Page <span id="current-page">1</span> of 68
                 </div>
                 <button id="next">Next</button>
+                <button id="fullscreen-toggle">Fullscreen</button>
             </div>
         </div>
     </div>
@@ -79,6 +80,21 @@
 
             document.getElementById('next').addEventListener('click', function() {
                 $('.flipbook').turn('next');
+            });
+
+            // Fullscreen toggle
+            document.getElementById('fullscreen-toggle').addEventListener('click', function() {
+                if (!document.fullscreenElement) {
+                    document.documentElement.requestFullscreen();
+                } else {
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen();
+                    }
+                }
+            });
+
+            document.addEventListener('fullscreenchange', function() {
+                resizeFlipbook();
             });
         });
     </script>
