@@ -88,6 +88,8 @@ header img {
     border-radius: 5px;
     font-size: 14px;
     margin: 0 10px;
+    text-align: center;
+    min-width: 100px;
 }
 
 /* Media Queries */
@@ -98,16 +100,20 @@ header img {
     }
 
     .controls {
-        flex-direction: column;
+        width: 100%;
+        justify-content: space-between;
     }
 
-    .controls button {
-        padding: 8px 16px;
+    .controls button, .controls .page-number {
+        flex: 1;
+        text-align: center;
+        padding: 8px 0;
         font-size: 14px;
+        margin: 0;
     }
 
     .controls .page-number {
-        margin: 10px 0;
+        order: 2;
     }
 }
 
