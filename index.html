@@ -91,10 +91,14 @@
             });
 
             document.addEventListener('fullscreenchange', function() {
+                var header = document.querySelector('header');
+                var controls = document.querySelector('.controls');
                 if (document.fullscreenElement) {
-                    document.querySelector('.controls').classList.add('fullscreen-controls');
+                    header.style.display = 'none';
+                    controls.classList.add('fullscreen-controls');
                 } else {
-                    document.querySelector('.controls').classList.remove('fullscreen-controls');
+                    header.style.display = 'block';
+                    controls.classList.remove('fullscreen-controls');
                 }
                 resizeFlipbook();
             });
