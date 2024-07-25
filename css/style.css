@@ -83,6 +83,14 @@ header img {
     background: #777;
 }
 
+.fullscreen-controls {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
 /* Media Queries */
 @media (max-width: 767px) {
     .flipbook-viewport {
