@@ -91,6 +91,11 @@
             });
 
             document.addEventListener('fullscreenchange', function() {
+                if (document.fullscreenElement) {
+                    document.querySelector('.controls').classList.add('fullscreen-controls');
+                } else {
+                    document.querySelector('.controls').classList.remove('fullscreen-controls');
+                }
                 resizeFlipbook();
             });
         });
