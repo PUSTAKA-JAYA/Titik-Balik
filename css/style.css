@@ -13,23 +13,18 @@ header {
     width: 100%;
     background: #222;
     text-align: center;
-    margin: 0;
-    padding: 0;
 }
 
 header img {
     max-width: 100%;
     height: auto;
-    margin: 0;
-    padding: 0;
-    display: block;
 }
 
 .flipbook-viewport {
     position: relative;
-    width: 100%;
-    height: calc(100vh - 60px); /* Adjust this value to the height of the header */
-    margin: 0;
+    width: 80vw;
+    height: 80vh;
+    margin-top: 20px; /* Adjust this value to add space between header and flipbook */
 }
 
 .container {
@@ -49,7 +44,7 @@ header img {
 .flipbook .page img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .page-footer {
@@ -63,7 +58,7 @@ header img {
     font-size: 12px;
 }
 
-.controls-container {
+.controls {
     position: absolute;
     bottom: 10px;
     left: 50%;
@@ -71,26 +66,23 @@ header img {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #555;
-    border-radius: 10px;
-    padding: 5px;
-    border: 2px solid #777;
+    width: 100%;
 }
 
-.controls-container button {
+.controls button {
     background: #555;
     color: #fff;
     border: none;
-    margin: 0 5px;
+    padding: 10px 20px;
+    margin: 0 10px;
     cursor: pointer;
     font-size: 16px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 5px;
 }
 
-.controls-container button:hover {
+.controls button:hover {
     background: #777;
 }
 
@@ -111,16 +103,15 @@ header img {
 @media (max-width: 767px) {
     .flipbook-viewport {
         width: 95vw;
-        height: calc(100vh - 60px);
+        height: 75vh;
     }
 
-    .controls-container {
-        width: 100%;
-        padding: 5px 0;
+    .controls {
+        flex-direction: row;
         justify-content: space-between;
     }
 
-    .controls-container button {
+    .controls button {
         padding: 8px 16px;
         font-size: 14px;
     }
@@ -134,14 +125,10 @@ header img {
 @media (min-width: 768px) and (max-width: 991px) {
     .flipbook-viewport {
         width: 90vw;
-        height: calc(100vh - 60px);
+        height: 80vh;
     }
 
-    .controls-container {
-        padding: 10px 20px;
-    }
-
-    .controls-container button {
+    .controls button {
         padding: 9px 18px;
         font-size: 15px;
     }
