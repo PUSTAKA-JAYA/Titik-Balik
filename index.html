@@ -30,6 +30,9 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var flipbook = document.querySelector('.flipbook');
+            var header = document.querySelector('header');
+            var controls = document.querySelector('.controls');
+            var isControlsVisible = true;
 
             for (var i = 1; i <= 68; i++) {
                 var page = document.createElement('div');
@@ -95,7 +98,6 @@
             });
 
             document.addEventListener('fullscreenchange', function() {
-                var header = document.querySelector('header');
                 if (document.fullscreenElement) {
                     header.style.display = 'none';
                 } else {
@@ -113,6 +115,23 @@
             document.getElementById('next').addEventListener('click', function() {
                 $('.flipbook').turn('next');
             });
+
+            // Toggle header and controls on touch/click
+            function toggleControls() {
+                if (isControlsVisible) {
+                    header.style.display = 'none';
+                    controls.style.display = 'none';
+                } else {
+                    header.style.display = 'block';
+                    controls.style.display = 'flex';
+                }
+                isControlsVisible = !isControlsVisible;
+                resizeFlipbook();
+                setFlipbookDisplay();
+            }
+
+            document.addEventListener('touchstart', toggleControls);
+            document.addEventListener('click', toggleControls);
         });
     </script>
 </body>
