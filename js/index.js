@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var headerHeight = $('header').outerHeight();
         var flipbookWidth, flipbookHeight;
 
-        if (window.innerWidth > window.innerHeight) { // Landscape
+        if (viewportWidth > viewportHeight) { // Landscape
             flipbookWidth = viewportWidth;
             flipbookHeight = viewportHeight - headerHeight;
             $('.flipbook').turn('display', 'double');
