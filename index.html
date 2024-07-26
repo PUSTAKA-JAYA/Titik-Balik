@@ -131,9 +131,18 @@
                 setFlipbookDisplay();
             }
 
-            // Using a separate element to handle toggle visibility
-            document.querySelector('.toggle-visibility').addEventListener('touchstart', toggleControls);
-            document.querySelector('.toggle-visibility').addEventListener('click', toggleControls);
+            // Adding touchstart and click event listeners with immediate feedback
+            document.querySelector('.toggle-visibility').addEventListener('touchstart', function(event) {
+                // Prevent default touch action to avoid conflict with other events
+                event.preventDefault();
+                toggleControls();
+            });
+
+            document.querySelector('.toggle-visibility').addEventListener('click', function(event) {
+                // Prevent default action for clicks within the toggle area
+                event.preventDefault();
+                toggleControls();
+            });
         });
     </script>
 </body>
