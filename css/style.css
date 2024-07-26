@@ -77,20 +77,14 @@ header img {
     border: 2px solid #777;
 }
 
-.controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .controls button {
     background: #555;
     color: #fff;
     border: none;
-    padding: 10px 20px;
-    margin: 0 5px;
+    padding: 8px 15px;
+    margin: 0 3px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -102,8 +96,8 @@ header img {
 }
 
 .controls .icon {
-    width: 24px; /* Adjust the size of the icon */
-    height: 24px;
+    width: 20px; /* Adjust the size of the icon */
+    height: 20px;
 }
 
 .fullscreen-controls {
@@ -128,13 +122,13 @@ header img {
     }
 
     .controls button {
-        padding: 8px 16px;
-        font-size: 14px;
+        padding: 6px 12px;
+        font-size: 12px;
     }
 
     .controls .icon {
-        width: 20px; /* Adjust the size of the icon */
-        height: 20px;
+        width: 18px; /* Adjust the size of the icon */
+        height: 18px;
     }
 }
 
@@ -149,7 +143,7 @@ header img {
     }
 
     .controls button {
-        padding: 9px 18px;
-        font-size: 15px;
+        padding: 7px 14px;
+        font-size: 13px;
     }
 }
