@@ -17,6 +17,13 @@
             <div class="flipbook">
                 <!-- Pages will be inserted here -->
             </div>
+            <div class="controls">
+                <button id="prev">Previous</button>
+                <button id="fullscreen-toggle">
+                    <img src="path/to/fullscreen-icon.png" alt="Fullscreen" class="icon">
+                </button>
+                <button id="next">Next</button>
+            </div>
         </div>
     </div>
 
@@ -96,6 +103,15 @@
                 }
                 resizeFlipbook();
                 setFlipbookDisplay();
+            });
+
+            // Navigation buttons
+            document.getElementById('prev').addEventListener('click', function() {
+                $('.flipbook').turn('previous');
+            });
+
+            document.getElementById('next').addEventListener('click', function() {
+                $('.flipbook').turn('next');
             });
         });
     </script>
