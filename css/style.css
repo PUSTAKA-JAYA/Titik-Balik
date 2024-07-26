@@ -65,6 +65,7 @@ header img {
     display: flex;
     justify-content: center;
     gap: 10px;
+    z-index: 1000; /* Ensure the controls are always on top */
 }
 
 .controls button {
