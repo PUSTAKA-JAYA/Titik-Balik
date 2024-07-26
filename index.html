@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <img src="path/to/your/header-image.jpg" alt="Header Image">
+        <img id="header-img" src="path/to/your/header-image.jpg" alt="Header Image">
     </header>
     <div class="flipbook-viewport">
         <div class="container">
@@ -72,9 +72,11 @@
 
             $(window).resize(function() {
                 resizeFlipbook();
+                resizeControls();
             });
 
             resizeFlipbook();
+            resizeControls();
 
             // Navigation buttons
             document.getElementById('prev').addEventListener('click', function() {
@@ -108,6 +110,13 @@
                 }
                 resizeFlipbook();
             });
+
+            function resizeControls() {
+                var headerHeight = document.getElementById('header-img').clientHeight;
+                document.querySelectorAll('.controls-container button').forEach(button => {
+                    button.style.height = headerHeight + 'px';
+                });
+            }
         });
     </script>
 </body>
