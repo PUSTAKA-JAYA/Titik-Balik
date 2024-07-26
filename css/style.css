@@ -58,6 +58,29 @@ header img {
     font-size: 12px;
 }
 
+.controls {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.controls button {
+    padding: 10px 20px;
+    border: none;
+    background: #222;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.controls button img.icon {
+    width: 20px;
+    height: 20px;
+}
+
 /* Media Queries */
 @media (max-width: 767px) {
     .flipbook-viewport {
