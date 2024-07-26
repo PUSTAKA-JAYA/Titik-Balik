@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     for (var i = 1; i <= 68; i++) {
         var page = document.createElement('div');
         page.classList.add('page');
-        page.innerHTML = '<img src="images/page' + i + '.jpg"><div class="page-footer">' + i + '</div>';
+        page.innerHTML = '<img src="images/page' + i + '.jpg">';
         flipbook.appendChild(page);
     }
 
