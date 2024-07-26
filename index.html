@@ -10,14 +10,14 @@
 </head>
 <body>
     <header>
-        <img id="header-img" src="path/to/your/header-image.jpg" alt="Header Image">
+        <img src="path/to/your/header-image.jpg" alt="Header Image">
     </header>
     <div class="flipbook-viewport">
         <div class="container">
             <div class="flipbook">
                 <!-- Pages will be inserted here -->
             </div>
-            <div class="controls-container">
+            <div class="controls">
                 <button id="prev">Previous</button>
                 <button id="fullscreen-toggle">
                     <img src="path/to/fullscreen-icon.png" alt="Fullscreen" class="icon">
@@ -41,19 +41,26 @@
             function resizeFlipbook() {
                 var viewportWidth = $(window).width();
                 var viewportHeight = $(window).height();
-                var flipbookWidth, flipbookHeight;
+                var flipbookWidth = viewportWidth * 0.8;
+                var flipbookHeight = viewportHeight * 0.8;
 
-                if (window.innerWidth > window.innerHeight) { // Landscape
+                if (viewportWidth < 768) { // Mobile
+                    flipbookWidth = viewportWidth * 0.95;
+                    flipbookHeight = viewportHeight * 0.75;
+                } else if (viewportWidth < 992) { // Tablet
                     flipbookWidth = viewportWidth * 0.9;
-                    flipbookHeight = viewportHeight * 0.9;
-                    $('.flipbook').turn('display', 'double');
-                } else { // Portrait
-                    flipbookWidth = viewportWidth * 0.8;
                     flipbookHeight = viewportHeight * 0.8;
-                    $('.flipbook').turn('display', 'single');
                 }
 
                 $('.flipbook').turn('size', flipbookWidth, flipbookHeight);
+            }
+
+            function setFlipbookDisplay() {
+                if (window.innerWidth > window.innerHeight) {
+                    $('.flipbook').turn('display', 'double');
+                } else {
+                    $('.flipbook').turn('display', 'single');
+                }
             }
 
             $('.flipbook').turn({
@@ -72,11 +79,11 @@
 
             $(window).resize(function() {
                 resizeFlipbook();
-                resizeControls();
+                setFlipbookDisplay();
             });
 
+            setFlipbookDisplay();
             resizeFlipbook();
-            resizeControls();
 
             // Navigation buttons
             document.getElementById('prev').addEventListener('click', function() {
@@ -100,23 +107,17 @@
 
             document.addEventListener('fullscreenchange', function() {
                 var header = document.querySelector('header');
-                var controlsContainer = document.querySelector('.controls-container');
+                var controls = document.querySelector('.controls');
                 if (document.fullscreenElement) {
                     header.style.display = 'none';
-                    controlsContainer.classList.add('fullscreen-controls');
+                    controls.classList.add('fullscreen-controls');
                 } else {
                     header.style.display = 'block';
-                    controlsContainer.classList.remove('fullscreen-controls');
+                    controls.classList.remove('fullscreen-controls');
                 }
                 resizeFlipbook();
+                setFlipbookDisplay();
             });
-
-            function resizeControls() {
-                var headerHeight = document.getElementById('header-img').clientHeight;
-                document.querySelectorAll('.controls-container button').forEach(button => {
-                    button.style.height = headerHeight + 'px';
-                });
-            }
         });
     </script>
 </body>
