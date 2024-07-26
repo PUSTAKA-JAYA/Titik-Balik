@@ -22,17 +22,14 @@ header img {
     height: auto;
     margin: 0;
     padding: 0;
+    display: block;
 }
 
 .flipbook-viewport {
     position: relative;
-    width: 100vw;
-    height: calc(100vh - 60px); /* Adjust height based on header size */
+    width: 100%;
+    height: calc(100vh - 60px); /* Adjust this value to the height of the header */
     margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .container {
@@ -41,13 +38,6 @@ header img {
     overflow: hidden;
     background: #fff;
     box-shadow: 0 0 20px rgba(0,0,0,0.5);
-    margin: 0;
-    padding: 0;
-}
-
-.flipbook {
-    width: 100%;
-    height: 100%;
 }
 
 .flipbook .page {
@@ -62,11 +52,32 @@ header img {
     object-fit: contain;
 }
 
-.controls {
+.page-footer {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.controls-container {
     position: absolute;
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    background: #555;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.controls {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -77,12 +88,13 @@ header img {
     color: #fff;
     border: none;
     padding: 10px 20px;
-    margin: 0 10px;
+    margin: 0 5px;
     cursor: pointer;
     font-size: 16px;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 5px;
 }
 
 .controls button:hover {
@@ -90,7 +102,7 @@ header img {
 }
 
 .controls .icon {
-    width: 24px;
+    width: 24px; /* Adjust the size of the icon */
     height: 24px;
 }
 
@@ -105,11 +117,11 @@ header img {
 /* Media Queries */
 @media (max-width: 767px) {
     .flipbook-viewport {
-        width: 100vw;
-        height: calc(100vh - 60px); /* Adjust height for smaller screens */
+        width: 95vw;
+        height: calc(100vh - 60px);
     }
 
-    .controls {
+    .controls-container {
         flex-direction: row;
         justify-content: space-between;
     }
@@ -120,15 +132,15 @@ header img {
     }
 
     .controls .icon {
-        width: 20px;
+        width: 20px; /* Adjust the size of the icon */
         height: 20px;
     }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
     .flipbook-viewport {
-        width: 100vw;
-        height: calc(100vh - 60px); /* Adjust height for medium screens */
+        width: 90vw;
+        height: calc(100vh - 60px);
     }
 
     .controls button {
