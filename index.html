@@ -24,7 +24,7 @@
                 </button>
                 <button id="next">Next</button>
             </div>
-            <div class="toggle-visibility"></div>
+            <div class="overlay"></div>
         </div>
     </div>
 
@@ -33,6 +33,7 @@
             var flipbook = document.querySelector('.flipbook');
             var header = document.querySelector('header');
             var controls = document.querySelector('.controls');
+            var overlay = document.querySelector('.overlay');
             var isControlsVisible = true;
 
             for (var i = 1; i <= 68; i++) {
@@ -101,8 +102,10 @@
             document.addEventListener('fullscreenchange', function() {
                 if (document.fullscreenElement) {
                     header.style.display = 'none';
+                    controls.style.display = 'none';
                 } else {
                     header.style.display = 'block';
+                    controls.style.display = 'flex';
                 }
                 resizeFlipbook();
                 setFlipbookDisplay();
@@ -131,14 +134,14 @@
                 setFlipbookDisplay();
             }
 
-            // Adding touchstart and click event listeners with immediate feedback
-            document.querySelector('.toggle-visibility').addEventListener('touchstart', function(event) {
+            // Adding touchstart and click event listeners to the overlay
+            overlay.addEventListener('touchstart', function(event) {
                 // Prevent default touch action to avoid conflict with other events
                 event.preventDefault();
                 toggleControls();
             });
 
-            document.querySelector('.toggle-visibility').addEventListener('click', function(event) {
+            overlay.addEventListener('click', function(event) {
                 // Prevent default action for clicks within the toggle area
                 event.preventDefault();
                 toggleControls();
