@@ -41,10 +41,10 @@ header img {
     position: relative;
 }
 
-.flipbook .page img {
+.flipbook .page img.flip-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain; /* Ensure the image fits within the page */
 }
 
 .page-footer {
