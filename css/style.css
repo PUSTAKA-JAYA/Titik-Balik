@@ -75,6 +75,7 @@ header img {
     border-radius: 5px;
     background: #333;
     padding: 5px;
+    justify-content: center;
 }
 
 .controls button {
@@ -116,11 +117,7 @@ header img {
 
     .controls {
         flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .controls-container {
-        flex-direction: column;
+        justify-content: center;
     }
 
     .controls button {
