@@ -77,27 +77,26 @@ header img {
     border: 2px solid #777;
 }
 
-.controls button {
+.controls-container button {
     background: #555;
     color: #fff;
     border: none;
-    padding: 8px 15px;
-    margin: 0 3px;
+    margin: 0 5px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 16px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
 }
 
-.controls button:hover {
+.controls-container button:hover {
     background: #777;
 }
 
 .controls .icon {
-    width: 20px; /* Adjust the size of the icon */
-    height: 20px;
+    width: 24px; /* Adjust the size of the icon */
+    height: 24px;
 }
 
 .fullscreen-controls {
@@ -121,14 +120,14 @@ header img {
         justify-content: space-between;
     }
 
-    .controls button {
-        padding: 6px 12px;
-        font-size: 12px;
+    .controls-container button {
+        padding: 8px 16px;
+        font-size: 14px;
     }
 
     .controls .icon {
-        width: 18px; /* Adjust the size of the icon */
-        height: 18px;
+        width: 20px; /* Adjust the size of the icon */
+        height: 20px;
     }
 }
 
@@ -142,8 +141,8 @@ header img {
         padding: 10px 20px;
     }
 
-    .controls button {
-        padding: 7px 14px;
-        font-size: 13px;
+    .controls-container button {
+        padding: 9px 18px;
+        font-size: 15px;
     }
 }
