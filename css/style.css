@@ -27,7 +27,7 @@ header img {
 .flipbook-viewport {
     position: relative;
     width: 100vw;
-    height: calc(100vh - 100px); /* Adjust height based on header size */
+    height: calc(100vh - 60px); /* Adjust height based on header size */
     margin: 0;
     padding: 0;
     display: flex;
@@ -40,6 +40,7 @@ header img {
     height: 100%;
     overflow: hidden;
     background: #fff;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
     margin: 0;
     padding: 0;
 }
@@ -69,7 +70,6 @@ header img {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
 }
 
 .controls button {
@@ -106,7 +106,7 @@ header img {
 @media (max-width: 767px) {
     .flipbook-viewport {
         width: 100vw;
-        height: calc(100vh - 100px); /* Ensure it adjusts to smaller screens */
+        height: calc(100vh - 60px); /* Adjust height for smaller screens */
     }
 
     .controls {
@@ -128,7 +128,7 @@ header img {
 @media (min-width: 768px) and (max-width: 991px) {
     .flipbook-viewport {
         width: 100vw;
-        height: calc(100vh - 100px); /* Ensure it adjusts to medium screens */
+        height: calc(100vh - 60px); /* Adjust height for medium screens */
     }
 
     .controls button {
