@@ -24,6 +24,7 @@
                 </button>
                 <button id="next">Next</button>
             </div>
+            <div class="toggle-visibility"></div>
         </div>
     </div>
 
@@ -130,8 +131,9 @@
                 setFlipbookDisplay();
             }
 
-            document.addEventListener('touchstart', toggleControls);
-            document.addEventListener('click', toggleControls);
+            // Using a separate element to handle toggle visibility
+            document.querySelector('.toggle-visibility').addEventListener('touchstart', toggleControls);
+            document.querySelector('.toggle-visibility').addEventListener('click', toggleControls);
         });
     </script>
 </body>
