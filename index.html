@@ -135,10 +135,11 @@
                 var bottomMenu = document.querySelector('.bottom-menu');
                 if (document.fullscreenElement) {
                     header.style.display = 'none';
+                    adSpace.style.display = 'none'; // Hide ad-space in fullscreen mode
                 } else {
                     header.style.display = 'block';
+                    adSpace.style.display = 'block'; // Ensure ad-space is always displayed
                 }
-                adSpace.style.display = 'block'; // Ensure ad-space is always displayed
                 bottomMenu.style.display = 'flex'; // Ensure bottom-menu is always displayed
                 resizeFlipbook();
                 setFlipbookDisplay();
