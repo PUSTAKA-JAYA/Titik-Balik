@@ -92,8 +92,8 @@ header img {
 .overlay {
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
+    left: 25%; /* Avoiding the left and right 25% of the viewport */
+    width: 50%;
     height: 100%;
     z-index: 999;
     background: transparent;
