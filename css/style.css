@@ -76,6 +76,31 @@ header img {
     height: auto;
 }
 
+.bottom-menu {
+    width: 100%;
+    background: #222;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed; /* Ensure bottom-menu is always visible */
+    bottom: 0; /* Position it at the bottom */
+    z-index: 1000; /* Ensure it stays on top */
+    display: flex;
+    justify-content: space-around;
+}
+
+.bottom-menu button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.bottom-menu button img {
+    width: 30px;
+    height: 30px;
+}
+
 /* Media Queries */
 @media (max-width: 767px) {
     .flipbook-viewport {
