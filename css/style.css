@@ -25,7 +25,7 @@ header img {
 .flipbook-viewport {
     position: relative;
     width: 100vw;
-    height: calc(100vh - 60px); /* 60px is an example header height, adjust as needed */
+    height: calc(100vh - 160px); /* Adjust height to account for header and ad space */
     margin: 0;
 }
 
@@ -60,17 +60,29 @@ header img {
     font-size: 12px;
 }
 
+.ad-space {
+    width: 100%;
+    background: #222;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.ad-space img {
+    max-width: 100%;
+    height: auto;
+}
+
 /* Media Queries */
 @media (max-width: 767px) {
     .flipbook-viewport {
         width: 100vw;
-        height: calc(100vh - 60px); /* Adjust header height if necessary */
+        height: calc(100vh - 160px); /* Adjust header and ad space height if necessary */
     }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
     .flipbook-viewport {
         width: 100vw;
-        height: calc(100vh - 60px); /* Adjust header height if necessary */
+        height: calc(100vh - 160px); /* Adjust header and ad space height if necessary */
     }
 }
