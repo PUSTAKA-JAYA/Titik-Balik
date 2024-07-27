@@ -122,11 +122,10 @@
                 var adSpace = document.querySelector('.ad-space');
                 if (document.fullscreenElement) {
                     header.style.display = 'none';
-                    adSpace.style.display = 'none';
                 } else {
                     header.style.display = 'block';
-                    adSpace.style.display = 'block';
                 }
+                adSpace.style.display = 'block'; // Ensure ad-space is always displayed
                 resizeFlipbook();
                 setFlipbookDisplay();
             });
