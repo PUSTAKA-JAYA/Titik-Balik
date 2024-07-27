@@ -66,6 +66,9 @@ header img {
     background: #222;
     text-align: center;
     padding: 10px 0;
+    position: fixed; /* Ensure ad-space is always visible */
+    bottom: 0; /* Position it at the bottom */
+    z-index: 1000; /* Ensure it stays on top */
 }
 
 .ad-space img {
