@@ -69,9 +69,13 @@
                 elevation: 150, // Higher elevation for 3D effect
                 acceleration: true,
                 cornerSize: 100,
+                pages: 68,
                 when: {
+                    turning: function(event, page, view) {
+                        console.log('Turning to page', page);
+                    },
                     turned: function(event, page, view) {
-                        $('#current-page').text(page);
+                        console.log('Turned to page', page);
                     }
                 }
             });
@@ -83,6 +87,24 @@
 
             setFlipbookDisplay();
             resizeFlipbook();
+
+            // Handle click to turn pages
+            $('.flipbook').on('click', function(event) {
+                var page = $('.flipbook').turn('page');
+                var pages = $('.flipbook').turn('pages');
+                var bookWidth = $('.flipbook').width();
+                var x = event.pageX - $('.flipbook').offset().left;
+
+                if (x < bookWidth / 2) {
+                    if (page > 1) {
+                        $('.flipbook').turn('previous');
+                    }
+                } else {
+                    if (page < pages) {
+                        $('.flipbook').turn('next');
+                    }
+                }
+            });
 
             // Fullscreen toggle
             document.getElementById('fullscreen-toggle').addEventListener('click', function() {
