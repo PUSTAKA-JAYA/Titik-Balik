@@ -80,9 +80,9 @@ header img {
     width: 100%;
     background: #222;
     text-align: center;
-    padding: 10px 0;
+    padding: 5px 0;
     position: fixed; /* Ensure bottom-menu is always visible */
-    bottom: 0; /* Position it at the bottom */
+    bottom: 40px; /* Position it above the ad-space */
     z-index: 1000; /* Ensure it stays on top */
     display: flex;
     justify-content: space-around;
@@ -92,13 +92,13 @@ header img {
     background: none;
     border: none;
     color: white;
-    font-size: 18px;
+    font-size: 14px;
     cursor: pointer;
 }
 
 .bottom-menu button img {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
 }
 
 /* Media Queries */
