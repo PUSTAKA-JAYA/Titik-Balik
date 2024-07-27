@@ -13,6 +13,8 @@ header {
     width: 100%;
     background: #222;
     text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
 header img {
@@ -22,9 +24,9 @@ header img {
 
 .flipbook-viewport {
     position: relative;
-    width: 100%;
-    height: calc(100vh - 100px); /* Adjust based on the height of the header */
-    overflow: hidden;
+    width: 100vw;
+    height: calc(100vh - 60px); /* 60px is an example header height, adjust as needed */
+    margin: 0;
 }
 
 .container {
@@ -33,12 +35,6 @@ header img {
     overflow: hidden;
     background: #fff;
     box-shadow: 0 0 20px rgba(0,0,0,0.5);
-    position: relative;
-}
-
-.flipbook {
-    width: 100%;
-    height: 100%;
 }
 
 .flipbook .page {
@@ -50,7 +46,7 @@ header img {
 .flipbook .page img.flip-img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensure the image fits within the page */
+    object-fit: contain; /* Ensure the image fits within the page */
 }
 
 .page-footer {
@@ -64,50 +60,17 @@ header img {
     font-size: 12px;
 }
 
-.controls {
-    position: absolute;
-    bottom: 10px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    z-index: 1000; /* Ensure the controls are always on top */
-}
-
-.controls button {
-    padding: 10px 20px;
-    border: none;
-    background: #222;
-    color: #fff;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.controls button img.icon {
-    width: 20px;
-    height: 20px;
-}
-
-/* Adding the overlay */
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 25%; /* Avoiding the left and right 25% of the viewport */
-    width: 50%;
-    height: 100%;
-    z-index: 999;
-    background: transparent;
-}
-
 /* Media Queries */
 @media (max-width: 767px) {
     .flipbook-viewport {
-        height: calc(100vh - 50px); /* Adjust based on the height of the header */
+        width: 100vw;
+        height: calc(100vh - 60px); /* Adjust header height if necessary */
     }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
     .flipbook-viewport {
-        height: calc(100vh - 80px); /* Adjust based on the height of the header */
+        width: 100vw;
+        height: calc(100vh - 60px); /* Adjust header height if necessary */
     }
 }
