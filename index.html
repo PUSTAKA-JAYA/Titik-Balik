@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flipbook</title>
+    <title>Flipbook 3D</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/turn.js"></script>
@@ -62,9 +62,9 @@
                 autoCenter: true,
                 display: 'single',
                 gradients: true,
-                elevation: 50,
-                acceleration: true, // Enable acceleration for smoother flipping
-                cornerSize: 100, // Increase corner size for easier page turning
+                elevation: 150, // Higher elevation for 3D effect
+                acceleration: true,
+                cornerSize: 100,
                 when: {
                     turned: function(event, page, view) {
                         $('#current-page').text(page);
