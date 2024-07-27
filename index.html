@@ -19,6 +19,10 @@
             </div>
         </div>
     </div>
+    <div class="ad-space">
+        <!-- Place your ad code here -->
+        <img src="path/to/your/ad-image.jpg" alt="Advertisement">
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -33,7 +37,7 @@
 
             function resizeFlipbook() {
                 var viewportWidth = $(window).width();
-                var viewportHeight = $(window).height() - $('header').height();
+                var viewportHeight = $(window).height() - $('header').height() - $('.ad-space').height();
                 var flipbookWidth = viewportWidth;
                 var flipbookHeight = viewportHeight;
 
@@ -58,7 +62,7 @@
 
             $('.flipbook').turn({
                 width: $(window).width(),
-                height: $(window).height() - $('header').height(),
+                height: $(window).height() - $('header').height() - $('.ad-space').height(),
                 autoCenter: true,
                 display: 'single',
                 gradients: true,
@@ -93,10 +97,13 @@
 
             document.addEventListener('fullscreenchange', function() {
                 var header = document.querySelector('header');
+                var adSpace = document.querySelector('.ad-space');
                 if (document.fullscreenElement) {
                     header.style.display = 'none';
+                    adSpace.style.display = 'none';
                 } else {
                     header.style.display = 'block';
+                    adSpace.style.display = 'block';
                 }
                 resizeFlipbook();
                 setFlipbookDisplay();
