@@ -17,24 +17,12 @@
             <div class="flipbook">
                 <!-- Pages will be inserted here -->
             </div>
-            <div class="controls">
-                <button id="prev">Previous</button>
-                <button id="fullscreen-toggle">
-                    <img src="path/to/fullscreen-icon.png" alt="Fullscreen" class="icon">
-                </button>
-                <button id="next">Next</button>
-            </div>
-            <div class="overlay"></div>
         </div>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var flipbook = document.querySelector('.flipbook');
-            var header = document.querySelector('header');
-            var controls = document.querySelector('.controls');
-            var overlay = document.querySelector('.overlay');
-            var isControlsVisible = true;
 
             for (var i = 1; i <= 68; i++) {
                 var page = document.createElement('div');
@@ -44,16 +32,18 @@
             }
 
             function resizeFlipbook() {
-                var headerHeight = $('header').outerHeight();
                 var viewportWidth = $(window).width();
-                var viewportHeight = $(window).height() - headerHeight;
+                var viewportHeight = $(window).height() - $('header').height();
                 var flipbookWidth = viewportWidth;
                 var flipbookHeight = viewportHeight;
 
-                $('.flipbook-viewport').css({
-                    width: flipbookWidth,
-                    height: flipbookHeight
-                });
+                if (viewportWidth < 768) { // Mobile
+                    flipbookWidth = viewportWidth;
+                    flipbookHeight = viewportHeight;
+                } else if (viewportWidth < 992) { // Tablet
+                    flipbookWidth = viewportWidth;
+                    flipbookHeight = viewportHeight;
+                }
 
                 $('.flipbook').turn('size', flipbookWidth, flipbookHeight);
             }
@@ -68,12 +58,13 @@
 
             $('.flipbook').turn({
                 width: $(window).width(),
-                height: $(window).height() - $('header').outerHeight(),
+                height: $(window).height() - $('header').height(),
                 autoCenter: true,
                 display: 'single',
                 gradients: true,
                 elevation: 50,
-                acceleration: true,
+                acceleration: true, // Enable acceleration for smoother flipping
+                cornerSize: 100, // Increase corner size for easier page turning
                 when: {
                     turned: function(event, page, view) {
                         $('#current-page').text(page);
@@ -101,51 +92,14 @@
             });
 
             document.addEventListener('fullscreenchange', function() {
+                var header = document.querySelector('header');
                 if (document.fullscreenElement) {
                     header.style.display = 'none';
-                    controls.style.display = 'none';
                 } else {
                     header.style.display = 'block';
-                    controls.style.display = 'flex';
                 }
                 resizeFlipbook();
                 setFlipbookDisplay();
-            });
-
-            // Navigation buttons
-            document.getElementById('prev').addEventListener('click', function() {
-                $('.flipbook').turn('previous');
-            });
-
-            document.getElementById('next').addEventListener('click', function() {
-                $('.flipbook').turn('next');
-            });
-
-            // Toggle header and controls on touch/click
-            function toggleControls() {
-                if (isControlsVisible) {
-                    header.style.display = 'none';
-                    controls.style.display = 'none';
-                } else {
-                    header.style.display = 'block';
-                    controls.style.display = 'flex';
-                }
-                isControlsVisible = !isControlsVisible;
-                resizeFlipbook();
-                setFlipbookDisplay();
-            }
-
-            // Adding touchstart and click event listeners to the overlay
-            overlay.addEventListener('touchstart', function(event) {
-                // Prevent default touch action to avoid conflict with other events
-                event.preventDefault();
-                toggleControls();
-            });
-
-            overlay.addEventListener('click', function(event) {
-                // Prevent default action for clicks within the toggle area
-                event.preventDefault();
-                toggleControls();
             });
         });
     </script>
