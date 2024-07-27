@@ -23,11 +23,6 @@
         <!-- Place your ad code here -->
         <img src="path/to/your/ad-image.jpg" alt="Advertisement">
     </div>
-    <div class="bottom-menu">
-        <button id="prev-page"><img src="path/to/prev-icon.png" alt="Prev"></button>
-        <button id="fullscreen-toggle"><img src="path/to/fullscreen-icon.png" alt="Fullscreen"></button>
-        <button id="next-page"><img src="path/to/next-icon.png" alt="Next"></button>
-    </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var flipbook = document.querySelector('.flipbook');
@@ -41,7 +36,7 @@
 
             function resizeFlipbook() {
                 var viewportWidth = $(window).width();
-                var viewportHeight = $(window).height() - $('header').height() - $('.ad-space').height() - $('.bottom-menu').height();
+                var viewportHeight = $(window).height() - $('header').height() - $('.ad-space').height();
                 var flipbookWidth = viewportWidth;
                 var flipbookHeight = viewportHeight;
 
@@ -66,7 +61,7 @@
 
             $('.flipbook').turn({
                 width: $(window).width(),
-                height: $(window).height() - $('header').height() - $('.ad-space').height() - $('.bottom-menu').height(),
+                height: $(window).height() - $('header').height() - $('.ad-space').height(),
                 autoCenter: true,
                 display: 'single',
                 gradients: true,
@@ -111,28 +106,9 @@
             });
 
             // Fullscreen toggle
-            document.getElementById('fullscreen-toggle').addEventListener('click', function() {
-                if (!document.fullscreenElement) {
-                    document.documentElement.requestFullscreen();
-                } else {
-                    if (document.exitFullscreen) {
-                        document.exitFullscreen();
-                    }
-                }
-            });
-
-            document.getElementById('prev-page').addEventListener('click', function() {
-                $('.flipbook').turn('previous');
-            });
-
-            document.getElementById('next-page').addEventListener('click', function() {
-                $('.flipbook').turn('next');
-            });
-
             document.addEventListener('fullscreenchange', function() {
                 var header = document.querySelector('header');
                 var adSpace = document.querySelector('.ad-space');
-                var bottomMenu = document.querySelector('.bottom-menu');
                 if (document.fullscreenElement) {
                     header.style.display = 'none';
                     adSpace.style.display = 'none'; // Hide ad-space in fullscreen mode
@@ -140,7 +116,6 @@
                     header.style.display = 'block';
                     adSpace.style.display = 'block'; // Ensure ad-space is always displayed
                 }
-                bottomMenu.style.display = 'flex'; // Ensure bottom-menu is always displayed
                 resizeFlipbook();
                 setFlipbookDisplay();
             });
