@@ -97,19 +97,12 @@ document.addEventListener('DOMContentLoaded', function() {
         setFlipbookDisplay();
     });
 
-    // Handle navigation clicks
-    document.querySelector('.nav-left').addEventListener('click', function() {
-        var page = $('.flipbook').turn('page');
-        if (page > 1) {
-            $('.flipbook').turn('previous');
-        }
+    // Add event listeners for navigation
+    document.querySelector('.nav.prev').addEventListener('click', function() {
+        $('.flipbook').turn('previous');
     });
 
-    document.querySelector('.nav-right').addEventListener('click', function() {
-        var page = $('.flipbook').turn('page');
-        var pages = $('.flipbook').turn('pages');
-        if (page < pages) {
-            $('.flipbook').turn('next');
-        }
+    document.querySelector('.nav.next').addEventListener('click', function() {
+        $('.flipbook').turn('next');
     });
 });
