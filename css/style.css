@@ -25,8 +25,9 @@ header img {
 .flipbook-viewport {
     position: relative;
     width: 100vw;
-    height: calc(100vh - 160px); /* Adjust height to account for header and ad space */
+    height: calc(100vh - 160px - 60px); /* Adjust height to account for header and ad space and footer */
     margin: 0;
+    padding-bottom: 60px; /* Ensure there is space for the footer */
 }
 
 .container {
@@ -90,13 +91,15 @@ footer.bottom-menu .menu-item {
 @media (max-width: 767px) {
     .flipbook-viewport {
         width: 100vw;
-        height: calc(100vh - 160px); /* Adjust header and ad space height if necessary */
+        height: calc(100vh - 160px - 60px); /* Adjust height to account for header, ad space, and footer */
+        padding-bottom: 60px; /* Ensure there is space for the footer */
     }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
     .flipbook-viewport {
         width: 100vw;
-        height: calc(100vh - 160px); /* Adjust header and ad space height if necessary */
+        height: calc(100vh - 160px - 60px); /* Adjust height to account for header, ad space, and footer */
+        padding-bottom: 60px; /* Ensure there is space for the footer */
     }
 }
