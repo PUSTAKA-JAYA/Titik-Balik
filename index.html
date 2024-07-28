@@ -25,103 +25,52 @@
         <button class="menu-item">Menu 2</button>
         <button class="menu-item">Menu 3</button>
     </footer>
+document.addEventListener('DOMContentLoaded', function() {
+    var flipbook = document.querySelector('.flipbook');
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var flipbook = document.querySelector('.flipbook');
+    for (var i = 1; i <= 68; i++) {
+        var page = document.createElement('div');
+        page.classList.add('page');
+        page.innerHTML = '<img src="images/page' + i + '.jpg" class="flip-img">';
+        flipbook.appendChild(page);
+    }
 
-            for (var i = 1; i <= 68; i++) {
-                var page = document.createElement('div');
-                page.classList.add('page');
-                page.innerHTML = '<img src="images/page' + i + '.jpg" class="flip-img"><div class="page-footer">' + i + '</div>';
-                flipbook.appendChild(page);
-            }
+    function resizeFlipbook() {
+        var viewportWidth = window.innerWidth;
+        var viewportHeight = window.innerHeight - document.querySelector('header').offsetHeight - document.querySelector('.ad-space').offsetHeight - document.querySelector('footer').offsetHeight;
+        var flipbookWidth = viewportWidth;
+        var flipbookHeight = viewportHeight;
 
-            function resizeFlipbook() {
-                var viewportWidth = window.innerWidth;
-                var viewportHeight = window.innerHeight - document.querySelector('header').offsetHeight - document.querySelector('.ad-space').offsetHeight - document.querySelector('footer').offsetHeight;
-                var flipbookWidth = viewportWidth;
-                var flipbookHeight = viewportHeight;
+        document.querySelector('.flipbook').style.width = flipbookWidth + 'px';
+        document.querySelector('.flipbook').style.height = flipbookHeight + 'px';
+    }
 
-                if (viewportWidth < 768) { // Mobile
-                    flipbookWidth = viewportWidth;
-                    flipbookHeight = viewportHeight;
-                } else if (viewportWidth < 992) { // Tablet
-                    flipbookWidth = viewportWidth;
-                    flipbookHeight = viewportHeight;
-                }
+    function setFlipbookDisplay() {
+        if (window.innerWidth > window.innerHeight) {
+            document.querySelector('.flipbook').classList.add('double');
+        } else {
+            document.querySelector('.flipbook').classList.remove('double');
+        }
+    }
 
-                document.querySelector('.flipbook').style.width = flipbookWidth + 'px';
-                document.querySelector('.flipbook').style.height = flipbookHeight + 'px';
-            }
+    window.addEventListener('resize', function() {
+        resizeFlipbook();
+        setFlipbookDisplay();
+    });
 
-            function setFlipbookDisplay() {
-                if (window.innerWidth > window.innerHeight) {
-                    document.querySelector('.flipbook').classList.add('double');
-                } else {
-                    document.querySelector('.flipbook').classList.remove('double');
-                }
-            }
+    setFlipbookDisplay();
+    resizeFlipbook();
 
-            window.addEventListener('resize', function() {
-                resizeFlipbook();
-                setFlipbookDisplay();
-            });
+    document.querySelector('.nav.prev').addEventListener('click', function() {
+        $('.flipbook').turn('previous');
+    });
 
-            setFlipbookDisplay();
-            resizeFlipbook();
+    document.querySelector('.nav.next').addEventListener('click', function() {
+        $('.flipbook').turn('next');
+    });
+});
 
-            // Handle click to turn pages
-            document.querySelector('.flipbook').addEventListener('click', function(event) {
-                var page = parseInt(event.target.closest('.page').dataset.page);
-                var totalPages = 68;
-                var bookWidth = document.querySelector('.flipbook').offsetWidth;
-                var x = event.pageX - document.querySelector('.flipbook').offsetLeft;
-
-                if (x < bookWidth / 2) {
-                    if (page > 1) {
-                        document.querySelector('.flipbook').dataset.page = page - 1;
-                    }
-                } else {
-                    if (page < totalPages) {
-                        document.querySelector('.flipbook').dataset.page = page + 1;
-                    }
-                }
-            });
-
-            // Fullscreen toggle
-            document.addEventListener('fullscreenchange', function() {
-                var header = document.querySelector('header');
-                var adSpace = document.querySelector('.ad-space');
-                var footer = document.querySelector('footer');
-                if (document.fullscreenElement) {
-                    header.style.display = 'none';
-                    adSpace.style.display = 'none';
-                    footer.style.display = 'none';
-                } else {
-                    header.style.display = 'block';
-                    adSpace.style.display = 'block';
-                    footer.style.display = 'block';
-                }
-                resizeFlipbook();
-                setFlipbookDisplay();
-            });
-
-            // Add event listeners for navigation
-            document.querySelector('.nav.prev').addEventListener('click', function() {
-                var currentPage = parseInt(document.querySelector('.flipbook').dataset.page);
-                if (currentPage > 1) {
-                    document.querySelector('.flipbook').dataset.page = currentPage - 1;
-                }
-            });
-
-            document.querySelector('.nav.next').addEventListener('click', function() {
-                var currentPage = parseInt(document.querySelector('.flipbook').dataset.page);
-                if (currentPage < 68) {
-                    document.querySelector('.flipbook').dataset.page = currentPage + 1;
-                }
-            });
-        });
-    </script>
+    <!-- Menambahkan referensi file JavaScript eksternal -->
+    <script src="script.js"></script>
 </body>
 </html>
