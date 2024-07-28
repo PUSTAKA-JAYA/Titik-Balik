@@ -26,7 +26,6 @@
         <button class="menu-item">Menu 3</button>
     </footer>
 
-    <!-- Menambahkan JavaScript langsung di dalam HTML -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var flipbook = document.querySelector('.flipbook');
@@ -39,8 +38,8 @@
             }
 
             function resizeFlipbook() {
-                var viewportWidth = $(window).width();
-                var viewportHeight = $(window).height() - $('header').height() - $('.ad-space').height() - $('footer').height();
+                var viewportWidth = window.innerWidth;
+                var viewportHeight = window.innerHeight - document.querySelector('header').offsetHeight - document.querySelector('.ad-space').offsetHeight - document.querySelector('footer').offsetHeight;
                 var flipbookWidth = viewportWidth;
                 var flipbookHeight = viewportHeight;
 
@@ -52,38 +51,19 @@
                     flipbookHeight = viewportHeight;
                 }
 
-                $('.flipbook').turn('size', flipbookWidth, flipbookHeight);
+                document.querySelector('.flipbook').style.width = flipbookWidth + 'px';
+                document.querySelector('.flipbook').style.height = flipbookHeight + 'px';
             }
 
             function setFlipbookDisplay() {
                 if (window.innerWidth > window.innerHeight) {
-                    $('.flipbook').turn('display', 'double');
+                    document.querySelector('.flipbook').classList.add('double');
                 } else {
-                    $('.flipbook').turn('display', 'single');
+                    document.querySelector('.flipbook').classList.remove('double');
                 }
             }
 
-            $('.flipbook').turn({
-                width: $(window).width(),
-                height: $(window).height() - $('header').height() - $('.ad-space').height() - $('footer').height(),
-                autoCenter: true,
-                display: 'single',
-                gradients: true,
-                elevation: 150, // Higher elevation for 3D effect
-                acceleration: true,
-                cornerSize: 100,
-                pages: 68,
-                when: {
-                    turning: function(event, page, view) {
-                        console.log('Turning to page', page);
-                    },
-                    turned: function(event, page, view) {
-                        console.log('Turned to page', page);
-                    }
-                }
-            });
-
-            $(window).resize(function() {
+            window.addEventListener('resize', function() {
                 resizeFlipbook();
                 setFlipbookDisplay();
             });
@@ -92,19 +72,19 @@
             resizeFlipbook();
 
             // Handle click to turn pages
-            $('.flipbook').on('click', function(event) {
-                var page = $('.flipbook').turn('page');
-                var pages = $('.flipbook').turn('pages');
-                var bookWidth = $('.flipbook').width();
-                var x = event.pageX - $('.flipbook').offset().left;
+            document.querySelector('.flipbook').addEventListener('click', function(event) {
+                var page = parseInt(event.target.closest('.page').dataset.page);
+                var totalPages = 68;
+                var bookWidth = document.querySelector('.flipbook').offsetWidth;
+                var x = event.pageX - document.querySelector('.flipbook').offsetLeft;
 
                 if (x < bookWidth / 2) {
                     if (page > 1) {
-                        $('.flipbook').turn('previous');
+                        document.querySelector('.flipbook').dataset.page = page - 1;
                     }
                 } else {
-                    if (page < pages) {
-                        $('.flipbook').turn('next');
+                    if (page < totalPages) {
+                        document.querySelector('.flipbook').dataset.page = page + 1;
                     }
                 }
             });
@@ -116,12 +96,12 @@
                 var footer = document.querySelector('footer');
                 if (document.fullscreenElement) {
                     header.style.display = 'none';
-                    adSpace.style.display = 'none'; // Hide ad-space in fullscreen mode
-                    footer.style.display = 'none'; // Hide footer in fullscreen mode
+                    adSpace.style.display = 'none';
+                    footer.style.display = 'none';
                 } else {
                     header.style.display = 'block';
-                    adSpace.style.display = 'block'; // Ensure ad-space is always displayed
-                    footer.style.display = 'block'; // Ensure footer is always displayed
+                    adSpace.style.display = 'block';
+                    footer.style.display = 'block';
                 }
                 resizeFlipbook();
                 setFlipbookDisplay();
@@ -129,14 +109,19 @@
 
             // Add event listeners for navigation
             document.querySelector('.nav.prev').addEventListener('click', function() {
-                $('.flipbook').turn('previous');
+                var currentPage = parseInt(document.querySelector('.flipbook').dataset.page);
+                if (currentPage > 1) {
+                    document.querySelector('.flipbook').dataset.page = currentPage - 1;
+                }
             });
 
             document.querySelector('.nav.next').addEventListener('click', function() {
-                $('.flipbook').turn('next');
+                var currentPage = parseInt(document.querySelector('.flipbook').dataset.page);
+                if (currentPage < 68) {
+                    document.querySelector('.flipbook').dataset.page = currentPage + 1;
+                }
             });
         });
     </script>
-    <!-- Akhir dari JavaScript langsung di dalam HTML -->
 </body>
 </html>
