@@ -56,13 +56,34 @@ header img {
     text-align: center;
     padding: 10px 0;
     position: fixed; /* Ensure ad-space is always visible */
-    bottom: 10px; /* Position it slightly above the bottom */
+    bottom: 60px; /* Position it above the footer */
     z-index: 1000; /* Ensure it stays on top */
 }
 
 .ad-space img {
     max-width: 100%;
     height: auto;
+}
+
+footer.bottom-menu {
+    width: 100%;
+    background: #222;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    z-index: 1000; /* Ensure it stays on top */
+    display: flex;
+    justify-content: center;
+}
+
+footer.bottom-menu .menu-item {
+    background: #444;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
 }
 
 /* Media Queries */
