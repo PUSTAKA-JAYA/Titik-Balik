@@ -23,6 +23,12 @@
         <!-- Place your ad code here -->
         <img src="path/to/your/ad-image.jpg" alt="Advertisement">
     </div>
+    <footer class="bottom-menu">
+        <!-- Add your menu items here -->
+        <button class="menu-item">Menu 1</button>
+        <button class="menu-item">Menu 2</button>
+        <button class="menu-item">Menu 3</button>
+    </footer>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var flipbook = document.querySelector('.flipbook');
@@ -36,7 +42,7 @@
 
             function resizeFlipbook() {
                 var viewportWidth = $(window).width();
-                var viewportHeight = $(window).height() - $('header').height() - $('.ad-space').height();
+                var viewportHeight = $(window).height() - $('header').height() - $('.ad-space').height() - $('footer').height();
                 var flipbookWidth = viewportWidth;
                 var flipbookHeight = viewportHeight;
 
@@ -61,7 +67,7 @@
 
             $('.flipbook').turn({
                 width: $(window).width(),
-                height: $(window).height() - $('header').height() - $('.ad-space').height(),
+                height: $(window).height() - $('header').height() - $('.ad-space').height() - $('footer').height(),
                 autoCenter: true,
                 display: 'single',
                 gradients: true,
@@ -109,12 +115,15 @@
             document.addEventListener('fullscreenchange', function() {
                 var header = document.querySelector('header');
                 var adSpace = document.querySelector('.ad-space');
+                var footer = document.querySelector('footer');
                 if (document.fullscreenElement) {
                     header.style.display = 'none';
                     adSpace.style.display = 'none'; // Hide ad-space in fullscreen mode
+                    footer.style.display = 'none'; // Hide footer in fullscreen mode
                 } else {
                     header.style.display = 'block';
                     adSpace.style.display = 'block'; // Ensure ad-space is always displayed
+                    footer.style.display = 'block'; // Ensure footer is always displayed
                 }
                 resizeFlipbook();
                 setFlipbookDisplay();
