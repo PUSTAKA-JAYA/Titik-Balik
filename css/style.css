@@ -36,6 +36,7 @@ header img {
     overflow: hidden;
     background: #fff;
     box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    position: relative;
 }
 
 .flipbook .page {
@@ -85,6 +86,24 @@ footer.bottom-menu .menu-item {
     padding: 10px 20px;
     margin: 0 5px;
     cursor: pointer;
+}
+
+.nav-left, .nav-right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    background: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.nav-left {
+    left: 0;
+}
+
+.nav-right {
+    right: 0;
 }
 
 /* Media Queries */
