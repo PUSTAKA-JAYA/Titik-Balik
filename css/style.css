@@ -50,24 +50,13 @@ header img {
     object-fit: contain; /* Ensure the image fits within the page */
 }
 
-.page-footer {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 12px;
-}
-
 .ad-space {
     width: 100%;
     background: #222;
     text-align: center;
     padding: 10px 0;
     position: fixed; /* Ensure ad-space is always visible */
-    bottom: 0; /* Position it at the bottom */
+    bottom: 10px; /* Position it slightly above the bottom */
     z-index: 1000; /* Ensure it stays on top */
 }
 
